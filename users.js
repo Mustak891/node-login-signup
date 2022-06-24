@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import { client } from './index.js';
 
+
 const router = express.Router()
 
 async function getHashPassword(password){
@@ -24,8 +25,8 @@ router.post('/signup', async (request, response) => {
 })
 
 router.post('/login', async (request, response) => {
-    const { username, password } = request.body;
-    const user = await client.db('B33WD').collection('users').findOne({ username: username });
+    const { email, password } = request.body;
+    const user = await client.db('B33WD').collection('users').findOne({ email: email });
     if(!user){
         response.status(400).send('User not found');
     }else{

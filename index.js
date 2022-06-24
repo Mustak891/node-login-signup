@@ -4,6 +4,7 @@ import cors from 'cors';
 import { MongoClient } from "mongodb";
 import { usersRouter } from './users.js';
 
+
 const app = express();
 
 dotenv.config();
